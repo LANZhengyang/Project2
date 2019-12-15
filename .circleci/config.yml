@@ -12,7 +12,7 @@ jobs:
             set +e
             jupyter nbconvert degree.ipynb --to python
             printf "\n \n"
-            
+            python3 -m unittest degree.py
             radon cc degree.py
             radon hal degree.py
             printf "\n \n"
