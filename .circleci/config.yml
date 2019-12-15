@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build: 
+    docker:
+      - image: circleci/python:3.7.3
+    steps:
+      - checkout
+      - run:
+          command: |
+            sudo pip3 install pylint pylint-exit jupyter radon 
+            printf "\n \n"
+            set +e
+            jupyter nbconvert degree.ipynb --to python
+            printf "\n \n"
+            
+            radon cc degree.py
+            radon hal degree.py
+            printf "\n \n"
+            pylint degree.py || pylint-exit $?
