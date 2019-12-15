@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           command: |
-            sudo pip3 install pylint pylint-exit jupyter radon 
+            sudo pip3 install pylint pylint-exit jupyter radon sklearn matplotlib numpy
             printf "\n \n"
             set +e
             jupyter nbconvert degree.ipynb --to python
