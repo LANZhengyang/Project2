@@ -16,4 +16,5 @@ jobs:
             radon cc degree.py
             radon hal degree.py
             printf "\n \n"
+            pylint --disable=C0326
             pylint degree.py || pylint-exit $?
